@@ -9,4 +9,8 @@ import { SecondComponent } from '../second-component/second-component';
 })
 export class FirstComponent {
    who = "Mani";
+
+   a= 5;
+   b =10;
+   value = this.a + this.b
 }
