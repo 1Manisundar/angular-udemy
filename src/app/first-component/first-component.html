@@ -10,3 +10,16 @@
 <p>B is {{b}}</p>
 <p>Total of "{{a}} + {{b}}" is {{value}}</p>
 
+
+<h2>Property Binding</h2>
+
+<div>
+    <p>1st is interpolation <input type= text value="{{propertyValue}}" disabled="disable"></p>
+
+    <p>2nd is Property Binding <input type= text [value] = "propertyValue" [disabled]="disable"></p>
+
+    <h3>For image</h3>
+    
+    <img [src]="image">
+
+</div>

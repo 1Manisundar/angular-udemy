@@ -13,4 +13,9 @@ export class FirstComponent {
    a= 5;
    b =10;
    value = this.a + this.b
+
+   propertyValue : string = "Hi this is me";
+   disable : boolean = false;
+
+   image = 'https://picsum.photos/id/237/200/300'
 }
