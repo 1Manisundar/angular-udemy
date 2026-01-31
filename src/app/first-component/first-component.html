@@ -14,12 +14,33 @@
 <h2>Property Binding</h2>
 
 <div>
-    <p>1st is interpolation <input type= text value="{{propertyValue}}" disabled="disable"></p>
+    <p>1st is interpolation <input type=text value="{{propertyValue}}" disabled="disable"></p>
 
-    <p>2nd is Property Binding <input type= text [value] = "propertyValue" [disabled]="disable"></p>
+    <p>2nd is Property Binding <input type=text [value]="propertyValue" [disabled]="disable"></p>
 
     <h3>For image</h3>
-    
+
     <img [src]="image">
 
+</div>
+
+<h2>Event Binding</h2>
+<div>
+    <button type="submit" (click)="event()">Click to see event</button>
+    <button type="submit" (click)="event1('here we send msg thru parameter')">Click to see event</button>
+
+
+    <input type="text" (input)="onTyping($event)">
+    <p>You are typing: {{ currentMessage }}</p>
+</div>
+
+<div class="container">
+    <h1>Counter Example</h1>
+    <div class="btn-container">
+        <button (click)="counter('decre')">--</button>
+        <p>
+            {{count}}
+        </p>
+        <button (click)="counter('incre')">++</button>
+    </div>
 </div>
