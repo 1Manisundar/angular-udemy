@@ -44,3 +44,75 @@
         <button (click)="counter('incre')">++</button>
     </div>
 </div>
+
+<h1>All other Events</h1>
+
+<div>
+    <p style="text-align-last: center;"> <b>Mouse events</b></p>
+    <h2 (dblclick)="dbclick()">Double click event -- {{dbl}}</h2>
+
+    <h2 (drag)="dbclick()">Mouse Drag event -- {{dbl}}</h2>
+
+    <h2 (dragover)="dbclick()">Mouse dragover event -- {{dbl}}</h2>
+
+    <h2 (mousedown)="dbclick()">Mouse down event -- {{dbl}}</h2>
+
+    <h2 (mouseup)="dbclick()">Mouse up event -- {{dbl}}</h2>
+
+    <h2 (mouseover)="dbclick()" class="hover">Mouse over event -- {{dbl}}</h2>
+
+    <h2 (mouseleave)="dbclick()" class="leave">Mouse over event -- {{dbl}}</h2>
+</div>
+
+<div>
+    <p style="text-align: center;"> <b>Keyboard events</b></p>
+
+    <p>Keyboard events are : keypress, keyup, keydown, select, foucs, input</p>
+</div>
+
+<h1>Event object ($event)</h1>
+
+<input type="text" (keyup)="keyup($event)">
+
+<input type="text" (keydown)="keydown($event)">
+
+
+<div (keydown)="keyCount($event)" tabindex="0">
+    <p style="text-align: center;"> <b>Key arrow up, down increment</b></p>
+
+    <div class="container">
+        <p>counter : {{keycount}}</p>
+        <p>please click arrow up for inc and down for dec</p>
+    </div>
+</div>
+
+<h1>Two way Binding</h1>
+
+<div>
+    <input type="text" [(ngModel)]="staticBind"> <br><br>
+
+    <input type="text" [(ngModel)]="dynamicBind"> <br>
+    <p>{{dynamicBind}}</p>
+</div>
+
+<div> 
+    <h4>Task : Show input data on button click</h4>
+    <input type="text" [(ngModel)]="inputVal"> <br><br>
+    
+    <button type="submit" (click)="show()"> submit</button>
+
+<h3>    <p> {{this.dynamicVal}}</p></h3>
+</div>
+
+
+<div>
+    <h2>Task : Cart calculation</h2>
+
+    <input type="number" min="0" [(ngModel)]="quantity">
+
+    <p>price per item {{itemPrice}}</p>
+
+    <p>Total cart value: {{cartTotal}} </p>
+
+
+</div>
