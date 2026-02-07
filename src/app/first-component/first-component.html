@@ -95,13 +95,15 @@
     <p>{{dynamicBind}}</p>
 </div>
 
-<div> 
+<div>
     <h4>Task : Show input data on button click</h4>
     <input type="text" [(ngModel)]="inputVal"> <br><br>
-    
+
     <button type="submit" (click)="show()"> submit</button>
 
-<h3>    <p> {{this.dynamicVal}}</p></h3>
+    <h3>
+        <p> {{this.dynamicVal}}</p>
+    </h3>
 </div>
 
 
@@ -113,6 +115,113 @@
     <p>price per item {{itemPrice}}</p>
 
     <p>Total cart value: {{cartTotal}} </p>
+</div>
 
 
+<h1>Directives</h1>
+
+<div>
+    <p *ngIf="display1"> Hi this is if direcitve display when value is true</p>
+
+    <button type="submit" (click)="ngSubmit()"> click to see content</button>
+
+    <p *ngIf="display2">This came cuz on submit value changed to true</p>
+</div>
+
+<div>
+    <p>Hii bro</p>
+    <p *ngIf="display2">Bye bro</p>
+</div>
+
+<h2>Task : check value higher or lower dynamically.</h2>
+
+<div>
+    <input type="number" [(ngModel)]="tsk1">
+
+    <p *ngIf="tsk1 > 5"> {{tsk1}} is greater than 5</p>
+    <p *ngIf="tsk1 < 5"> {{tsk1}} is less than 5</p>
+    <p *ngIf="tsk1 == 5"> {{tsk1}} is Equal than 5</p>
+</div>
+
+<h2> @ IF and @For </h2>
+
+<div>
+    <button type="submit" (click)="dataToggle()"> CLick and see if data is there or not</button>
+    @if(value1){
+    <p>
+        Hii bro this is true
+    </p>
+    } @else {
+    <p>
+        Bye bro this false
+    </p>
+    }
+</div>
+
+
+<div>
+    <h2>Age Validation</h2>
+
+    <p>Enter your age</p>
+    <input type="number" [(ngModel)]="age" (input)="eligibilty()">
+
+    <div [ngSwitch]="eligible">
+        <p *ngSwitchCase="true">Age is {{age}} U r above 18 bro congrats...</p>
+        <p *ngSwitchDefault="true">Age is {{age}} U r under 18 bro bad...</p>
+    </div>
+</div>
+
+
+<div>
+
+    <div>
+        <button type="button" (click)="toggle1()">Style toggle</button>
+    </div>
+
+    <div [ngClass]="colormode" class="div1">
+        <p>content 1 : Schedule learning time
+            Learning a little each day adds up. Research shows that students who make learning a habit are more likely
+            to
+            reach their goals. Set time aside to learn and get reminders using your learning scheduler.
+        </p>
+    </div>
+
+    <div [ngClass]="colormode" class="div1">
+        <p>content 2 : Schedule learning time
+            Learning a little each day adds up. Research shows that students who make learning a habit are more likely
+            to
+            reach their goals. Set time aside to learn and get reminders using your learning scheduler.
+        </p>
+    </div>
+
+
+</div>
+
+
+<div>
+    <h1>Ng Style</h1>
+
+    <input type="text" name="" id="" [(ngModel)]="name" [ngStyle]="{'background-color': name ? 'lightgreen' : 'red'}">
+    <br><br>
+    <input type="email" name="" id="" [ngStyle]="{'background-color' : ismail ? 'lightgreen' : 'red'}"
+        [(ngModel)]="mail" (input)="check(mail)">
+</div>
+
+
+<div>
+
+    <h1>Ng template & Ng container</h1>
+
+    <div>
+        <input type="text" name="" id="" [(ngModel)]="isnull">
+    </div>
+
+    <ng-container *ngIf="isnull !==''; else temp">
+
+    </ng-container>
+
+    <ng-template #temp>
+
+        <p>hi from template</p>
+    </ng-template>
 </div>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SecondComponent } from '../second-component/second-component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-first-component',
-  imports: [SecondComponent, FormsModule],
+  imports: [SecondComponent, FormsModule, CommonModule],
   templateUrl: './first-component.html',
   styleUrl: './first-component.css',
 })
@@ -101,4 +102,44 @@ export class FirstComponent {
 
   get cartTotal() {return this.quantity * this.itemPrice;} 
 
+  // Directives (*ngIf)
+  display1: boolean = true;
+  display2: boolean = false;
+  ngSubmit() {
+    this.display2 = !this.display2;
+  }
+
+  // Task: Value check
+  tsk1: number = 0;
+
+  // @if and @for Toggle
+  value1: boolean = true;
+  dataToggle() {
+    this.value1 = !this.value1;
+  }
+
+  // Age Validation (Switch Case)
+  age: number = 0;
+  eligible: boolean = false;
+  eligibilty() {
+    this.eligible = this.age >= 18;
+  }
+
+  // Class Binding
+  colormode: string = 'default-class'; 
+  toggle1() {
+    this.colormode = this.colormode === 'default-class' ? 'alt-class' : 'default-class';
+  }
+
+  // Style Binding
+  name: string = "";
+  mail: string = "";
+  ismail: boolean = false;
+  check(value: string) {
+    // Basic regex for email validation
+    this.ismail = value.includes('@') && value.includes('.');
+  }
+
+  // Template & Container
+  isnull: string = "";
 }
