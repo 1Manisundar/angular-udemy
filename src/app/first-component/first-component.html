@@ -225,3 +225,134 @@
         <p>hi from template</p>
     </ng-template>
 </div>
+
+
+<div>
+    <h1>Ng Template Outlet</h1>
+
+    <ng-template #showTemplate>
+        this is template bro
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="showTemplate">
+
+    </ng-container>
+
+
+    <h3>Template outlet with dynamic passing</h3>
+
+    <ng-template #showTemplate1 let-show='dynamic'>
+        {{show}}
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="showTemplate1 ; context : showMessage ">
+
+    </ng-container>
+    <br><br>
+
+
+    <h3>calc function</h3>
+    <div>
+        <p>Enter A value here</p> <input type="number" [(ngModel)]="a1"> <br><br>
+        <p>Enter B value here</p>
+        <input type="number" [(ngModel)]="b2">
+        <ng-template #showTemplate2 let-calc='dynamic2'>
+            The total of : {{a1}} & {{b2}}is : {{calc}}
+        </ng-template>
+        <ng-container *ngTemplateOutlet="showTemplate2 ; context : {dynamic2 : calc()} ">
+        </ng-container>
+    </div>
+
+    <h3>Show some details</h3>
+    <div>
+        <ng-template #showTemplate3 let-details='dynamic3'>
+            <p>Hi My name is {{details.name}}, ny age is {{details.age}} & im from {{details.place}}</p>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="showTemplate3 ; context : {dynamic3 : detail} ">
+        </ng-container>
+    </div>
+
+
+    <h3>Show some details with implicit</h3>
+    <div>
+        <ng-template #showTemplate4 let-details>
+            <p>Hi My name is {{details.name}}, ny age is {{details.age}} & im from {{details.place}}</p>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="showTemplate4 ; context : {$implicit : detail} ">
+        </ng-container>
+    </div>
+
+</div>
+
+
+
+<div>
+    <h1>Task -- portfolio</h1>
+
+    <ng-container *ngIf="!isSubmitted; else preview">
+        <h2>Personal informatiom</h2>
+        <form>
+            <div>
+                <label for=""> Name</label>
+                <input type="text" name="name" id="name" [(ngModel)]="name1">
+            </div>
+            <div>
+                <label for=""> Email</label>
+                <input type="email" name="mail" id="mail" [(ngModel)]="mail1">
+            </div>
+            <div>
+                <label for=""> Ph No : </label>
+                <input type="tel" maxlength=10 name="tel" id="tel" [(ngModel)]="cell">
+            </div>
+            <div>
+                <label for=""> Address</label>
+                <input type="text" name="add" id="add" [(ngModel)]="address">
+            </div>
+        </form>
+
+        <h2>Qualifications</h2>
+        <div *ngFor="let q of qualification;let i =index">
+            <h3>qualification {{i+1}}</h3>
+            <form>
+                <div>
+                    <label for="">School/college</label>
+                    <input type="text" name="sch" id="sch"[(ngModel)]="q.school">
+                </div>
+                <div>
+                    <label for=""> Degree</label>
+                    <input type="text" name="deg" id="deg" [(ngModel)]="q.degree">
+
+                </div>
+                <div>
+                    <label for=""> Year</label>
+                    <input type="text" name="year" id="year" [(ngModel)]="q.year">
+                </div>
+            </form>
+        </div>
+        <div class="btn-container1">
+
+            <button (click)="addQualification()"> Add Qualifications</button>
+            <button type="submit" (click)="formSubmit()"> Submit</button>
+
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #preview>
+    <div class="preview">
+        <h2>preview</h2>
+        <div>
+            <p>{{name1}}</p>
+            <p>Email :{{mail1}}</p>
+            <p>Ph No: {{cell}}</p>
+            <p>Address {{address}}:</p>
+        </div>
+        <div *ngFor ='let q of qualification'>
+            <h2>Qualifications</h2>
+            <p>school/College {{q.school}}</p>
+            <p>Degree : {{q.degree}}</p>
+            <p>Year {{q.year}}</p>
+        </div>
+        <button (click)="formEdit()">Edit</button>
+    </div>
+</ng-template>

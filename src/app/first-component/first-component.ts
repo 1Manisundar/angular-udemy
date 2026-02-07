@@ -40,9 +40,9 @@ export class FirstComponent {
 
 
   /** Counter Example */
-  count:number =0;
+  count: number = 0;
 
-  counter(type:string){
+  counter(type: string) {
     // if (type === 'incre'){
     //   this.count++;
     // }else {
@@ -55,42 +55,42 @@ export class FirstComponent {
 
   /** All other events */
   dbl = 0;
-  
-  dbclick(){
+
+  dbclick() {
     this.dbl++;
   }
 
   /** $event */
-  keyup(e:any){
+  keyup(e: any) {
     console.log(e.target.value);
   }
 
-  keydown(e: KeyboardEvent){
-    if(e.shiftKey && e.key=== 'Y'){
+  keydown(e: KeyboardEvent) {
+    if (e.shiftKey && e.key === 'Y') {
       console.log("shift+y clicked");
 
     }
   }
 
   keycount = 0;
-  keyCount(e:KeyboardEvent){
-    if(e.key ==="ArrowUp"){
-    this.keycount++
-    }else if(e.key === "ArrowDown"){
+  keyCount(e: KeyboardEvent) {
+    if (e.key === "ArrowUp") {
+      this.keycount++
+    } else if (e.key === "ArrowDown") {
       this.keycount--;
     }
   }
 
   /** Two way binding */
-  staticBind  = "this is static binding";
-  dynamicBind = ""; 
+  staticBind = "this is static binding";
+  dynamicBind = "";
 
 
   /** Task */
   inputVal = '';
   dynamicVal = '';
 
-  show(){
+  show() {
     this.dynamicVal = this.inputVal;
   }
 
@@ -98,9 +98,9 @@ export class FirstComponent {
 
   quantity = 1;
 
-  itemPrice =100;
+  itemPrice = 100;
 
-  get cartTotal() {return this.quantity * this.itemPrice;} 
+  get cartTotal() { return this.quantity * this.itemPrice; }
 
   // Directives (*ngIf)
   display1: boolean = true;
@@ -126,7 +126,7 @@ export class FirstComponent {
   }
 
   // Class Binding
-  colormode: string = 'default-class'; 
+  colormode: string = 'default-class';
   toggle1() {
     this.colormode = this.colormode === 'default-class' ? 'alt-class' : 'default-class';
   }
@@ -142,4 +142,46 @@ export class FirstComponent {
 
   // Template & Container
   isnull: string = "";
+
+  showMessage = {
+    dynamic: 'Hi bro this dynamic display'
+  }
+
+  a1 = 0;
+  b2 = 0;
+
+  calc() {
+
+    return this.a1 + this.b2
+
+  }
+
+  detail = {
+    name: 'mani',
+    age: 25,
+    place: 'hyd'
+  }
+
+
+  /** Task -- Portfolio */
+
+  name1 = '';
+  mail1 = '';
+  cell = 0;
+  address = '';
+  qualification = [{ school: '', degree: '', year: '' }]
+  
+  addQualification(){
+    this.qualification.push({ school: '', degree: '', year: '' })
+  }
+
+  isSubmitted = false;
+  formSubmit(){
+    this.isSubmitted= true;
+    
+  }
+
+  formEdit(){
+    this.isSubmitted= false;
+  }
 }
