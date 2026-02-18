@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { SecondComponent } from '../second-component/second-component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ThirdComponent } from '../third-component/third-component';
 
 @Component({
   selector: 'app-first-component',
-  imports: [SecondComponent, FormsModule, CommonModule],
+  imports: [SecondComponent, FormsModule, CommonModule, SecondComponent, ThirdComponent],
   templateUrl: './first-component.html',
   styleUrl: './first-component.css',
 })
@@ -170,18 +171,69 @@ export class FirstComponent {
   cell = 0;
   address = '';
   qualification = [{ school: '', degree: '', year: '' }]
-  
-  addQualification(){
+
+  addQualification() {
     this.qualification.push({ school: '', degree: '', year: '' })
   }
 
   isSubmitted = false;
-  formSubmit(){
-    this.isSubmitted= true;
-    
+  formSubmit() {
+    this.isSubmitted = true;
+
   }
 
-  formEdit(){
-    this.isSubmitted= false;
+  formEdit() {
+    this.isSubmitted = false;
+  }
+
+
+  /** Life cycle hooks */
+
+  // onChange
+
+  inputValue1 = 'Hii this is for ngOnChanges -- 1st value';
+
+  changeDec() {
+    this.inputValue1 = 'Hii this is for ngOnChanges -- 2nd value ';
+  }
+  constructor() {
+    // console.log('HI', this.inputValue1);
+  }
+
+
+  /**Decorators */
+
+  inputDecor1 = "Hi this is input decorator which can be used in child comps";
+
+  //task
+
+  courses: { id: number; name: string }[] = [
+    { id: 1, name: 'Course1' },
+    { id: 2, name: 'Course2' },
+    { id: 3, name: 'Course3' },
+    { id: 4, name: 'Course4' },
+    { id: 5, name: 'Course5' }
+  ];
+
+  //output decor using
+
+  message = '';
+  parentMethod(childEvent: string) {
+    this.message = childEvent;
+  }
+
+  //task adding and deleting using input output.
+
+  parentArr:string[] =['Item 1', 'Item 2', 'Item 3'];
+
+  addItem(){
+    const newItem = `Item ${this.parentArr.length+1}`;
+    this.parentArr.push(newItem);
+  }
+
+  deleteItem(index:number){
+  if(index >=0 && index < this.parentArr.length){
+    this.parentArr.splice(index,1);
+  }
   }
 }

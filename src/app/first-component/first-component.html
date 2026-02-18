@@ -316,7 +316,7 @@
             <form>
                 <div>
                     <label for="">School/college</label>
-                    <input type="text" name="sch" id="sch"[(ngModel)]="q.school">
+                    <input type="text" name="sch" id="sch" [(ngModel)]="q.school">
                 </div>
                 <div>
                     <label for=""> Degree</label>
@@ -347,7 +347,7 @@
             <p>Ph No: {{cell}}</p>
             <p>Address {{address}}:</p>
         </div>
-        <div *ngFor ='let q of qualification'>
+        <div *ngFor='let q of qualification'>
             <h2>Qualifications</h2>
             <p>school/College {{q.school}}</p>
             <p>Degree : {{q.degree}}</p>
@@ -356,3 +356,29 @@
         <button (click)="formEdit()">Edit</button>
     </div>
 </ng-template>
+
+
+
+<p>Accessing child component from here</p>
+
+<button (click)="changeDec()"> Click see onChange</button>
+<app-second-component [inputValueInChild]='inputValue1'></app-second-component>
+
+
+<h1>Decorators</h1>
+
+<h2>Property Decorators</h2>
+
+<p>data from this component : {{courses | json}}</p>
+<app-third-component [inputin3rd]="inputDecor1" [objectData]="courses" [childArr]="parentArr"
+    (delArr)="deleteItem($event)"
+    (childEvent)="parentMethod($event)"></app-third-component>
+
+<p>{{message}}</p>
+
+
+<div>
+    <h3>Input ouput add del elements</h3>
+
+    <button (click)="addItem()">CLick to add items into array</button>
+</div>
