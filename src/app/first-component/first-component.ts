@@ -236,4 +236,51 @@ export class FirstComponent {
     this.parentArr.splice(index,1);
   }
   }
+
+  /** Pipes */
+
+  pipes ="Hi this is pipes example";
+
+  pipeEmp =[
+    {empName : 'user A', state :'Andhra', salary : '44000'},
+    {empName : 'user B', state :'Chennai', salary : '42000'},
+    {empName : 'user C', state :'Banglore', salary : '1000'},
+    {empName : 'user D', state :'Hyd', salary : '4000'},
+  ];
+
+  sliceArr =["obj1", "obj2", "obj3", "obj4", "obj5"]
+
+  pipeNav : {name : string; imageUrl :string} []=[
+    {name : "1st image", imageUrl : "https://picsum.photos/seed/1/200/200"},
+    {name : "2nd image", imageUrl : "https://picsum.photos/seed/2/200/200"},
+    {name : "3rd image", imageUrl : "https://picsum.photos/seed/3/200/200"},
+    {name : "4th image", imageUrl : "https://picsum.photos/seed/4/200/200"},
+    {name : "5th image", imageUrl : "https://picsum.photos/seed/5/200/200"},
+    {name : "6th image", imageUrl : "https://picsum.photos/seed/6/200/200"},
+    {name : "7th image", imageUrl : "https://picsum.photos/seed/7/200/200"},
+    {name : "8th image", imageUrl : "https://picsum.photos/seed/8/200/200"},
+    {name : "9th image", imageUrl : "https://picsum.photos/seed/9/200/200"},
+    {name : "10th image", imageUrl : "https://picsum.photos/seed/10/200/200"}
+  ]
+  pageSize = 4;
+  startIndex =0;
+  endIndex = this.pageSize;
+
+  prevPage(){
+    this.startIndex -= this.pageSize;
+    this.endIndex -= this.pageSize;
+  }
+
+  nextPage(){
+    this.startIndex += this.pageSize;
+    this.endIndex += this.pageSize;
+  }
+
+
+  // weight conversion
+  weightPound = 0;
+  weightKg =0;
+  conversion(){
+    this.weightKg = this.weightPound * 0.453592;
+  }
 }

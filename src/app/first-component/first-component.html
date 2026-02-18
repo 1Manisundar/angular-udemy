@@ -371,8 +371,7 @@
 
 <p>data from this component : {{courses | json}}</p>
 <app-third-component [inputin3rd]="inputDecor1" [objectData]="courses" [childArr]="parentArr"
-    (delArr)="deleteItem($event)"
-    (childEvent)="parentMethod($event)"></app-third-component>
+    (delArr)="deleteItem($event)" (childEvent)="parentMethod($event)"></app-third-component>
 
 <p>{{message}}</p>
 
@@ -381,4 +380,61 @@
     <h3>Input ouput add del elements</h3>
 
     <button (click)="addItem()">CLick to add items into array</button>
+</div>
+
+
+<div>
+    <br>
+    <h1>Pipes</h1>
+
+
+    <p>{{pipes}}</p>
+    <p>{{pipes | uppercase}} : added upper case for this</p>
+    <p>{{pipes | json}} : json format here</p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>empName</th>
+                <th>State</th>
+                <th>Salary</th>
+            </tr>
+            <tr *ngFor="let item of pipeEmp">
+                <td>{{item.empName | titlecase}}</td>
+                <td>{{item.state | slice : 0:4 |uppercase}}</td>
+                <td>{{item.salary | currency : "INR"}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <p>{{"Angular slice pipes" | slice : 0:7}}</p>
+
+    <p>{{sliceArr | slice : 0:4}}</p>
+
+
+    <br><br><br>
+
+    <div class="product-grid">
+        <div class="product-card" *ngFor="let name of pipeNav | slice : startIndex : endIndex">
+            <p>{{name.name}}</p>
+            <img [src]="name.imageUrl" alt="">
+        </div>
+        <div>
+            <button (click)="prevPage()" [disabled]="startIndex === 0">Previous</button>
+            <button (click)="nextPage()" [disabled]="endIndex >= pipeNav.length" >Next</button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <p>weight conversion of pound to kg</p>
+
+    <input type="number" name="" id="" [(ngModel)]="weightPound">
+
+    <button (click)="conversion()">click to convert</button>
+    <p>Weight in kg is {{weightKg | number : '1.1-1'}}</p>
+
+    <h3>Json example</h3>
+    <p>{{pipeNav}} ""without json""</p>
+    <pre>{{pipeNav | json}}</pre>
 </div>
