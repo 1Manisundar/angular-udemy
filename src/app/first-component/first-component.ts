@@ -3,10 +3,12 @@ import { SecondComponent } from '../second-component/second-component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ThirdComponent } from '../third-component/third-component';
+import { AppendTextPipe } from '../append-text-pipe';
+import { SortNumbersPipe } from '../sort-numbers-pipe';
 
 @Component({
   selector: 'app-first-component',
-  imports: [SecondComponent, FormsModule, CommonModule, SecondComponent, ThirdComponent],
+  imports: [SecondComponent, FormsModule, CommonModule, SecondComponent, ThirdComponent, AppendTextPipe, SortNumbersPipe],
   templateUrl: './first-component.html',
   styleUrl: './first-component.css',
 })
@@ -282,5 +284,15 @@ export class FirstComponent {
   weightKg =0;
   conversion(){
     this.weightKg = this.weightPound * 0.453592;
+  }
+
+  /**Custom pipes */
+  numbers:number[] =[3,2,5,4,1,6];
+
+  sortOrder: 'asc' | 'desc' = 'asc';
+  showList: boolean = false;
+
+  showSorting() {
+    this.showList = true;
   }
 }

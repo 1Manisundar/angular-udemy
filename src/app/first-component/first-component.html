@@ -438,3 +438,37 @@
     <p>{{pipeNav}} ""without json""</p>
     <pre>{{pipeNav | json}}</pre>
 </div>
+
+
+<div>
+    <h2>Custom Pipes</h2>
+
+    <h1>
+        Given Array: <span>[{{ numbers }}]</span>
+      </h1>
+      <div class="button-container">
+        <button type="button" (click)="sortOrder = 'asc'; showSorting()">
+          Sort Ascending
+        </button>
+        <button type="button" (click)="sortOrder = 'desc'; showSorting()">
+          Sort Descending
+        </button>
+      </div>
+      @if(showList){
+      <div class="sorted-output">
+        @if(sortOrder === 'asc'){
+        <h2>Ascending Order</h2>
+        }@else if(sortOrder === 'desc'){
+        <h2>Descending Order</h2>
+        }
+        <ul class="number-list">
+          @for(number of numbers | sortNumbers: sortOrder; track number){
+          <li>
+            {{ number }}
+          </li>
+          }
+        </ul>
+      </div>
+      }
+      
+</div>
