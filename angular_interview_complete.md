@@ -2116,3 +2116,56 @@ This guide covers the essential Angular interview topics with:
 - Interview-ready format
 
 **Good luck with your interviews!** 🎯
+
+
+
+
+iq 24 : 
+
+All right.
+
+So let's discuss a few questions related to router outlet.
+
+So first is what is router outlet and why is it important in angular.
+
+So it is a directive that acts as a placeholder in your template where angular renders the component
+
+for the active route.
+
+It is essential because without it, angular won't be able to know where to inject the component associated
+
+with the current route.
+
+It tells angular where to display the routed component within the HTML structure of the application.
+
+The next question where should router outlet typically be placed?
+
+Can it be placed in components other than the root component?
+
+So the router outlet is commonly placed in the root component, that is, the app component to display
+
+components based on the top level routes.
+
+However, it can be placed in any parent component.
+
+This is particularly useful in nested routing scenarios where child routes are defined, or when you
+
+are using named outlets to render multiple views on the same page.
+
+
+iq 25: 
+
+What is the router link directive and how does it differ from a standard HTML anchor tag?
+
+The router link directive is used for in-app navigation between different components or views by updating
+
+the URL.
+
+It works in conjunction with Angular's router module to handle routing without causing a full page reload,
+
+which enables client side routing with ease.
+
+Unlike a standard HTML anchor tag, which causes the browser to reload the page, router link keeps
+
+the application state intact and allows smooth transitions between routes.
+
