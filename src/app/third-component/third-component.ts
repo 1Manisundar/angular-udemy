@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-third-component',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterOutlet],
   templateUrl: './third-component.html',
   styleUrl: './third-component.css',
 })

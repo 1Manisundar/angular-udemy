@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { ThirdComponent } from '../third-component/third-component';
 import { AppendTextPipe } from '../append-text-pipe';
 import { SortNumbersPipe } from '../sort-numbers-pipe';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-first-component',
-  imports: [SecondComponent, FormsModule, CommonModule, SecondComponent, ThirdComponent, AppendTextPipe, SortNumbersPipe],
+  imports: [SecondComponent, FormsModule, CommonModule, SecondComponent, ThirdComponent, AppendTextPipe, SortNumbersPipe, RouterOutlet],
   templateUrl: './first-component.html',
   styleUrl: './first-component.css',
 })
