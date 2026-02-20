@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-// // import { bootstrapApplication } from '@angular/platform-browser';
-import { FirstComponent } from './app/first-component/first-component';
-
-// @Component({
-//   selector: 'app-root',
-//   standalone: true, // Ensure this is present in Angular 18/19
-//   imports: [FirstComponent],
-//   template: `
-//     <!-- <h1>Hello {{ name }}</h1> -->
-//     <app-first-component></app-first-component>
-//   `,
-// })
-// export class App {
-//   name = 'Angular';
-// }
-
-// bootstrapApplication(App);
-
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter } from '@angular/router';
-// import { AppComponent } from './app/app.component';
+import { RouterOutlet, RouterLink } from '@angular/router'; // 1. Import router tools
 import { appConfig } from './app/app.config';
 
-bootstrapApplication(FirstComponent, appConfig).catch((err) => console.error(err));
+@Component({
+  selector: 'app-root', // Make sure your index.html has <app-root></app-root>
+  standalone: true,
+  imports: [RouterOutlet, RouterLink], // 2. Add RouterOutlet here
+  template: `
+    <div style="padding: 10px; background: #eee; margin-bottom: 20px;">
+      <a routerLink="/first" style="margin-right: 15px;">Go to First Component</a>
+      <a routerLink="/second">Go to Second Component</a>
+    </div>
+
+    <router-outlet></router-outlet>
+  `,
+})
+export class App {
+  name = 'Angular';
+}
+
+// 4. Bootstrap the App shell instead of FirstComponent
+bootstrapApplication(App, appConfig).catch((err) => console.error(err));
