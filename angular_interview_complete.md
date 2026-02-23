@@ -2169,3 +2169,249 @@ Unlike a standard HTML anchor tag, which causes the browser to reload the page, 
 
 the application state intact and allows smooth transitions between routes.
 
+iq 26:
+
+Now let's talk about relative questions.
+
+So explain the difference between static and dynamic routing.
+
+In static routing the routes are defined manually with their corresponding components.
+
+This enables a fixed route that maps to a specific component.
+
+So once the routes are defined, they do not change unless they are manually reconfigured at the development
+
+time.
+
+While the dynamic routes are defined by passing route parameters, this allows routing based on some
+
+user input or other factors, and they are flexible and customizable compared to the static routes.
+
+The second question is how to pass parameters to the route, so the route parameters are used by defining
+
+the parameter placeholder using the syntax colon and the parameter name.
+
+So defining a route like this enables a dynamic route for the component.
+
+
+iq 27:
+
+
+Now let's talk about a few questions.
+
+The first is what is wild card routing in angular and when is it used.
+
+So it is used to handle undefined or non-existent routes in angular.
+
+It is represented by double asterisk, and typically serves to catch all routes that do not match any
+
+defined route patterns.
+
+The most common use case is redirecting users to a 404 that is, page not found component when they
+
+attempt to access an unknown URL.
+
+Next question how does the order of route definitions affect wild card routing?
+
+Well, angular router processes routes in the order they are defined.
+
+Wild card routes should always be the last route in the configuration, because if angular encounters
+
+it first, no other routes would be evaluated.
+
+The routing process would stop at the wild card, causing unexpected behavior.
+
+
+iq 28:
+
+
+Now let's talk about a few questions related to nested routes.
+
+So how to define and navigate the child routes in angular.
+
+To define the child routes we need to specify the children property which is an array.
+
+And there we define the child routes.
+
+And to navigate the child route we include the parent route in the router link directive followed by
+
+the child route.
+
+Next question can you define multiple child routes in angular?
+
+Well, of course you can define multiple child routes by simply adding objects inside the children property
+
+array.
+
+Third question what is the purpose of router outlet in parent child routing?
+
+The router outlet directive serves as a placeholder for the content of the child routes.
+
+When a user navigates to a child route, the corresponding component is rendered inside the router outlet
+
+present in the parent component without the router outlet.
+
+Child routes would not be displayed.
+
+
+iq 29: 
+
+
+Let's also talk about a few relative questions.
+
+So the first question is what is the purpose of the redirect to property.
+
+So the redirect to property is used for redirecting the user to a different route when they navigate
+
+to a certain path.
+
+The next question is what is the path match property and how does it work?
+
+So the path match property tells the router how to match the given route to a URL segment.
+
+The prefix value matches the URL if it starts with the root's path, and the full value will match the
+
+exact URL as stated in the root's path.
+
+So here the route with the path slash home will be redirected when the user navigates to the root UR
+
+
+iq 30:
+
+
+So let's talk about a few questions.
+
+How can you fetch the currently activated route information?
+
+So by importing the activated route class in the component, we can access the currently activated route
+
+information.
+
+As this route class contains information about the route parameters, query parameters, and other metadata
+
+associated with the route.
+
+And with the help of its methods, we can easily fetch the route information.
+
+Next question what is the purpose of snapshot in activated route?
+
+So snapshot is a property of activated route that captures a static one time view of the routes, parameters,
+
+query parameters, data and fragment.
+
+At the moment the route was activated, snapshot provides values synchronously and does not react to
+
+subsequent parameter changes.
+
+It is best used when the parameters are not expected to change during the component's life cycle.
+
+The next question what is a real world example where using a snapshot for route parameters might be
+
+beneficial?
+
+Well, you can discuss the scenario which we just saw in the previous lecture, where the employee ID
+
+is passed in the route parameters and the data is loaded once upon component initialization.
+
+In such a case, using snapshot to retrieve the id is efficient as the parameter does not change while
+
+the component is loaded.
+
+
+
+iq 31:
+
+
+
+Explain how to pass query parameters in angular by using the query params property.
+
+We can easily pass and receive the query parameters when navigating between routes.
+
+They are mainly used with the combination of router link to create links that allow users to navigate
+
+between different components.
+
+What is the benefit of subscribing to query params in activated route?
+
+Subscribing to query params provides a reactive way to respond to changes in the URL's query parameters.
+
+This is useful for scenarios where the component remains active, but the user may update the URL with
+
+new query parameters, for example updating a filter on a product's page.
+
+Subscribing ensures that the component can detect and respond to such changes without needing a full
+
+reload.
+
+And the third question.
+
+Can we access query parameters using snapshot instead of subscribing in angular?
+
+Yes, indeed.
+
+Instead of subscribing to query params, you can access them synchronously with snapshot dot query params
+
+like shown here.
+
+This approach is suitable when you don't expect the query parameters to change during the component
+
+lifecycle.
+
+
+
+iq 32:
+
+
+
+Now let's talk about few questions.
+
+So what is the navigate method and when should it be used.
+
+This method is used to programmatically navigate to different routes in the application.
+
+It's part of the router service which handles client side routing.
+
+The method allows you to dynamically control navigation based on user actions, such as button clicks
+
+or form submissions, rather than relying solely on router link directive.
+
+When we want more control over the navigation, like setting query parameters or performing conditional
+
+routing based on data or logic, that's when we use the navigate method.
+
+Second question how can you navigate to a route with query parameters using the navigate method?
+
+Show it with an example.
+
+So by using the query params option inside the navigate method, we can navigate with query parameters
+
+and you can discuss the example which we implemented for the same.
+
+Next question.
+
+What is the difference between using the navigate method with query params and directly using router
+
+link with query params.
+
+So both the methods allow navigation with query parameters, but they serve slightly different use cases.
+
+The router link is a declarative approach typically used in templates.
+
+It is useful for static links where you know the parameters in advance, whereas the navigate method
+
+is a direct approach which provides more control within the component class.
+
+It is ideal when the parameters are dynamic, conditional, or need to be processed before navigation,
+
+for example in a form submit action or an API response callback.
+
+Navigate offers flexibility that cannot be achieved with router link alone.
+
+How would you navigate to a specific route and clear existing query parameters using the navigate method?
+
+To navigate and clear any existing query parameters, we can pass an empty object to the query params
+
+option.
+
+This explicitly sets the parameters to empty, ensuring that previous parameters are cleared.
+
