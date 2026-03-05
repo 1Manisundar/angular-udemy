@@ -2415,3 +2415,130 @@ option.
 
 This explicitly sets the parameters to empty, ensuring that previous parameters are cleared.
 
+
+
+iq 33: 
+
+
+Let's talk about relative questions.
+
+So what is the purpose of service in angular?
+
+Whenever you need to reuse the same data, the business logic, the code logic across multiple components
+
+of the application.
+
+Then we do that by creating a service file.
+
+You can consider a component as a reusable interface and a service as a reusable logic, code logic,
+
+or business logic.
+
+The second question is how to inject a service in angular.
+
+Basically, injection is the process of making the function available.
+
+In short, it's a very simple term.
+
+There are many ways to inject a service, but the common way is constructor injection, in which you
+
+define a constructor and declare a private parameter of type service, which you want to inject.
+
+Angular's dependency injection system automatically resolves the dependencies and provides an instance
+
+of the service when the component is instantiated.
+
+
+
+iq 34 : 
+
+There is also one question related to this.
+
+What is the role of injectable decorator in angular?
+
+So the injectable decorator plays really an important role in enabling and configuring dependency injection
+
+for a class, as it marks the class as injectable.
+
+The angular dependency injection mechanism automatically identifies that class as an injectable class,
+
+and allows that class to be injected in different components or classes.
+
+It indicates that a component class, pipe, or any module has a dependency on a service.
+
+
+iq 35:
+
+Let's talk about a few questions.
+
+The first question is explain the role of providers in angular.
+
+So the providers are used for implementing dependency injection.
+
+They are responsible for registering and configuring the dependencies that components and services require.
+
+The next question is how do you define the provider at component level, module level and at service
+
+level?
+
+So this is how you define the providers for each level.
+
+At component level we define the providers array inside the component decorator.
+
+At module level, the providers array is defined inside the Ng module decorator.
+
+And at the service level we define the provided in property inside the injectable decorator, specifying
+
+that provide the service at the root level of the application.
+
+The next question can you provide multiple instances of the same service in different components?
+
+If so, how?
+
+Yes.
+
+You can provide multiple instances of the same service to different components.
+
+This is achieved by configuring the providers at the component level like this, which we already saw.
+
+We define only the injectable decorator.
+
+This marks the class as injectable and enables it to be provided as dependency.
+
+And then we configure component level providers at each component like this.
+
+And then we inject the service at each component.
+
+
+iq 36 : 
+
+
+Now let's talk about few IQs.
+
+The first is what is the main advantage of inject method in angular standalone components and functional
+
+services.
+
+So from what we have seen, inject enables dependency injection directly within functional components
+
+and services without a constructor.
+
+This is particularly useful in standalone components and functional services as they make these components
+
+more lightweight and modular.
+
+The second question is when to use the inject function and the constructor for dependency injection.
+
+So the inject function is often used in standalone components or functional services, where using a
+
+constructor might not be a practical approach.
+
+Also, it is very helpful in defer loading that is, lazy loading of the service until it's actually
+
+needed.
+
+While the constructor can be used when we want all dependencies and services to be initialized from
+
+the start, that is when the component is first rendered.
+
+
