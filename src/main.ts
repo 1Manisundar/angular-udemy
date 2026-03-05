@@ -18,6 +18,7 @@ import { appConfig } from './app/app.config';
                     <li><a routerLink="/blog">Blog</a></li>
                     <li><a routerLink="/service">Services</a></li>
                     <li><a routerLink="/contact">Contact</a></li>
+                    <li><a routerLink="/dynamic">Dynamic Route</a></li>
                  </ul>
             </div>
         </nav>

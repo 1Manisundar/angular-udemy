@@ -1,0 +1,20 @@
+<br><br><br><br><br><br><br><br><br><p>dynamic-route works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Departments</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (emp of employees; track $index){
+            <tr>
+                <td>
+                    <a [routerLink]="['/dynamic', emp.empId]">
+                        {{emp.empDept}}
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
