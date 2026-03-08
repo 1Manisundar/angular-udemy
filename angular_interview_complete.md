@@ -2542,3 +2542,299 @@ While the constructor can be used when we want all dependencies and services to 
 the start, that is when the component is first rendered.
 
 
+
+
+iq 37:
+
+
+Now let's talk about questions.
+
+So what are injection tokens in angular injection tokens act as key to uniquely identify the provider.
+
+That is a class.
+
+So when there are multiple dependency injections in the application, tokens are used for uniquely identifying
+
+and resolving the dependencies at runtime.
+
+The second question is what is the use of the use class property?
+
+So this property specifies the class that will be used for injecting the token.
+
+It lets you create and return a new instance of the specified class.
+
+Next question is that.
+
+Explain the difference between provide and use class properties in the provider configuration.
+
+So just like we discussed earlier, the provider property takes the token which can be one of three
+
+types.
+
+And the use class property tells the angular dependency injection system which class should be injected
+
+with the given token.
+
+Next question what happens when you provide multiple providers with the same token using the use class
+
+syntax?
+
+So in that case, angular will use the provider that is defined last in the providers array, the last
+
+provider will be instantiated and will be used as the implementation for the token throughout the application.
+
+Any previous providers with the same token will be overridden and not used.
+
+
+iq 38:
+
+
+Let's talk about a few questions.
+
+So how to define and inject the string token.
+
+A simple string token is defined by providing a string inside the provide property like shown here.
+
+And then the inject decorator is used for injecting the string token.
+
+What is the use of inject decorator.
+
+So the inject decorator is a constructor parameter which is used for specifying custom providers or
+
+dependencies.
+
+So when you want to inject a service or a dependency, you can do that by giving the inject decorator.
+
+
+iq 39: 
+
+
+So let's discuss few issues for injection token object.
+
+So first is how do you define an injection token object in angular.
+
+So to define the injection token we first import the injection token class from the angular core.
+
+And then we define the injection token object of generic type parameter by declaring a variable.
+
+Next question what is an injection token and why would you use it?
+
+So the injection token is a special token used in angular to inject values that are not classes, such
+
+as configuration objects, primitive values or interfaces.
+
+It is useful when we want to provide non-class dependencies or use dependency injection with a custom
+
+token.
+
+
+iq 40:
+
+
+Now let's talk about a question related to injection token as value.
+
+So what's the difference between using a string as an injection token versus using an injection token
+
+object that is as value.
+
+Which one is preferred and why?
+
+So using injection tokens as a string might be a viable option for small scale projects, and can still
+
+work in certain cases like quick demos or simple config based setups, or for legacy code bases.
+
+But this approach isn't ideal in modern angular development.
+
+Now imagine you label an item with just your name, which sounds fine until you realize there are three
+
+more items with the exact same name.
+
+This becomes confusing, isn't it?
+
+That's exactly what happens when multiple parts of your angular app use the same string token.
+
+It works, but it's risky.
+
+A small typo or an accidental reuse of the same string elsewhere can silently break your code.
+
+So angular gives us a better way to label things using something called Injection token values, which
+
+basically is the injection token objects.
+
+Think of it like giving each token a unique barcode instead of just a name.
+
+Even if two tokens have the same label, they are treated as completely separate by angular.
+
+This keeps the app safe, predictable, and easy to scale.
+
+This approach keeps the injection tokens type safe and tree shakeable, meaning unused tokens can be
+
+removed during build and help avoid naming conflicts in large code bases.
+
+So the code becomes more organized and type safe, eventually making the app faster and smaller when
+
+it gets built for production.
+
+So while using a string is allowed and might seem simpler at first, using an injection token object
+
+as value is a smarter choice, especially in real world apps.
+
+Importing injection token as values instead of string is more preferable for a modern coding approach.
+
+It gives type safety, tree shaking ability and helps avoid naming conflicts.
+
+
+
+
+iq 41:
+
+
+Now let's discuss a relative question.
+
+So state the difference between the use class and use value properties.
+
+So use value is used for providing a constant value as a dependency.
+
+Whereas use class is for providing a class type as a dependency with use value.
+
+The same value is injected every time with use class, a new instance of the specified class is created
+
+and injected each time.
+
+
+
+iq 42: 
+
+
+
+Now let's talk about a question.
+
+So what is the reason behind using the use existing property.
+
+So whenever we want to provide an alias for an existing service we use the use existing property as
+
+it allows sharing the implementation of existing service among different tokens.
+
+
+iq 43:
+
+
+Now let's talk about the question.
+
+So what is use factory property and how to define it.
+
+So the use factory property is to specify a factory function that will be invoked to create an instance
+
+of a service, or provide a value.
+
+And to define it, we create a factory function that returns the instance of the service or value which
+
+you have provided.
+
+The second question is provide a reason.
+
+Why does the use factory?
+
+Expect a function.
+
+The use of function with use factory is necessary, as it provides a way to dynamically create and configure
+
+objects based on given conditions.
+
+By giving a function, it provides more flexibility to define and handle custom logic dependencies,
+
+configuring the instantiated object, etc. thus, the use factory always expects a function to be provided
+
+to allow dynamic object creation and configuration, although in some cases, instead of a function,
+
+a class value is also accepted, which is instantiated as an object.
+
+
+iq 44:
+
+
+The question is explain the purpose of Depp's property.
+
+So as we have seen that it takes an array which is used for configuring the dependencies used by the
+
+factory function in order to enable the dependency injection and ensure that necessary components are
+
+available for object creation.
+
+The second question is can the Depp's property be omitted if there are no dependencies to inject?
+
+Or in other words, is it optional or not?
+
+So yes, it is possible to omit the Depp's property if there are no dependencies to inject.
+
+If the factory function does not need any external components or objects to create the object, that
+
+is no need to specify dependencies.
+
+In such cases, leaving out the Depp's property keeps the configuration simpler and more straightforward.
+
+
+iq 55::
+
+
+In this lecture, we are exploring the fundamental differences between use factory and use value providers
+
+in angular dependency injection.
+
+While both techniques are used to inject values into components, they approach this task in different
+
+ways.
+
+The major difference, or the key difference, is that the use factory provider uses a factory function
+
+to calculate and provide the value dynamically, while the use value provider directly assigns a static
+
+value as the provider value, which cannot be changed during runtime of the application.
+
+Let's understand this in detail.
+
+By creating this simple example, I am creating a function named show greeting message and as to make
+
+the function accessible outside of its module, I have given the export keyword.
+
+To obtain the current R, I'll give the new date dot getters method.
+
+This will retrieve the current R of the day based on the local time of the user's device.
+
+Defining an empty string literal which will store the greeting message based on the R.
+
+Next, I'll set an if condition which checks the R and displays the corresponding greeting message and
+
+that message we are storing inside the empty string variable.
+
+And in the end, let me return the greeting message.
+
+Now inside the providers array, let me provide a string token for the factory provider and with the
+
+use factory giving the function.
+
+So this function is now assigned as a factory function.
+
+Similarly, for the value provider, I will set another string token and with the use value giving the
+
+static value.
+
+So now when we inject the string token for use factory inside the component, the factory function gets
+
+invoked and returns the greeting message based on the current R, which will be dynamic.
+
+And when the string token for the use value is injected, it will display the static value.
+
+Let's inject the tokens, giving the constructor and injecting the string token for the factory provider
+
+and the value provider will further display the greeting message in the console using the constructor
+
+parameters.
+
+Let's check the output and you can see the messages.
+
+The use factory message is dynamically displayed based on the current R, while the use value message
+
+is static.
+
+So these were the key differences between the use factory and use value providers.
