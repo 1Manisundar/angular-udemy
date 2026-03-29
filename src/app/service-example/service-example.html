@@ -1,0 +1,19 @@
+<!-- <section> -->
+    <!-- <div> -->
+        <br><br><br><br><br><br><br><br>
+        <ul>
+            @for (emp of employees; track $index){
+                <li> Employee : {{emp.name}}
+                    <button (click)="showDetails(emp.id)">Show details</button>
+                    <div>
+                        @if (emp.id === empId){
+                            <p>name:  {{emp.name}}</p>
+                            <p>Age : {{emp.age}}</p>
+                            <p>Place : {{emp.place}}</p>
+                        }
+                    </div>
+                </li>
+            }
+        </ul>
+    <!-- </div>
+</section> -->

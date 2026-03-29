@@ -12,6 +12,7 @@ import { Page404 } from './page-404/page-404';
 import { Nested1 } from './nested-1/nested-1';
 import { Nested2 } from './nested-2/nested-2';
 import { Nested3 } from './nested-3/nested-3';
+import { ServiceExample } from './service-example/service-example';
 
 export const routes: Routes = [
     { path: 'first', component: FirstComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path: 'contact', component: RouteF },
     { path: 'dynamic', component: DynamicRoute },
     { path: 'dynamic/:empId', component: DynamicRoute },
+    {path : 'example', component: ServiceExample},
 
     { path: 'parent', component: Nested1, children: [{ path: 'child1', component: Nested2 }, { path: 'child2', component: Nested3 }] },
     { path: '**', component: Page404 }
